@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { HiCode, HiDeviceMobile, HiLightningBolt, HiHeart, HiSparkles, HiTrendingUp, HiCheckCircle, HiClock } from 'react-icons/hi'
 import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiJavascript, SiExpress } from 'react-icons/si'
 
+
 const BentoGrid = () => {
   return (
     <section id="bento" className="py-20 px-6 relative overflow-hidden">
@@ -28,6 +29,7 @@ const BentoGrid = () => {
         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-pink/5 rounded-full blur-3xl"
       />
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -78,6 +80,7 @@ const BentoGrid = () => {
             A unique blend of creativity, technical expertise, and passion for building exceptional digital experiences
           </motion.p>
         </motion.div>
+
 
         {/* Enhanced Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6 auto-rows-[minmax(220px,auto)]">
@@ -145,6 +148,7 @@ const BentoGrid = () => {
                 ))}
               </div>
 
+
               {/* Enhanced Decorative Elements */}
               <motion.div
                 animate={{ 
@@ -156,6 +160,7 @@ const BentoGrid = () => {
               />
             </motion.div>
           </motion.div>
+
 
           {/* Tech Stack - Vertical Card with More Technologies */}
           <motion.div
@@ -183,12 +188,12 @@ const BentoGrid = () => {
               {/* Enhanced Animated Tech Icons */}
               <div className="space-y-4">
                 {[
-                  { Icon: SiReact, name: 'React', color: '#61DAFB', proficiency: '95%' },
-                  { Icon: SiNodedotjs, name: 'Node.js', color: '#339933', proficiency: '90%' },
-                  { Icon: SiMongodb, name: 'MongoDB', color: '#47A248', proficiency: '85%' },
-                  { Icon: SiTailwindcss, name: 'Tailwind', color: '#06B6D4', proficiency: '95%' },
-                  { Icon: SiJavascript, name: 'JavaScript', color: '#F7DF1E', proficiency: '90%' },
-                  { Icon: SiExpress, name: 'Express', color: '#FFFFFF', proficiency: '88%' },
+                  { Icon: SiReact, name: 'React', color: '#61DAFB', proficiency: '90%' },
+                  { Icon: SiNodedotjs, name: 'Node.js', color: '#339933', proficiency: '85%' },
+                  { Icon: SiMongodb, name: 'MongoDB', color: '#47A248', proficiency: '80%' },
+                  { Icon: SiTailwindcss, name: 'Tailwind', color: '#06B6D4', proficiency: '92%' },
+                  { Icon: SiJavascript, name: 'JavaScript', color: '#F7DF1E', proficiency: '88%' },
+                  { Icon: SiExpress, name: 'Express', color: '#FFFFFF', proficiency: '82%' },
                 ].map((tech, i) => (
                   <motion.div
                     key={i}
@@ -227,6 +232,7 @@ const BentoGrid = () => {
                 ))}
               </div>
 
+
               <motion.div
                 animate={{ 
                   rotate: 360,
@@ -240,6 +246,7 @@ const BentoGrid = () => {
               />
             </motion.div>
           </motion.div>
+
 
           {/* Mobile First - Enhanced Square Card */}
           <motion.div
@@ -267,6 +274,7 @@ const BentoGrid = () => {
                 Building responsive, mobile-first applications with <span className="text-accent-purple font-semibold">React Native</span> and modern PWA technologies.
               </p>
 
+
               {/* Enhanced Animated Phone */}
               <motion.div
                 animate={{ 
@@ -283,6 +291,7 @@ const BentoGrid = () => {
               </motion.div>
             </motion.div>
           </motion.div>
+
 
           {/* Fast Performance - Enhanced Square Card */}
           <motion.div
@@ -307,13 +316,14 @@ const BentoGrid = () => {
               
               <h3 className="text-2xl font-display font-bold mb-3">Fast Performance</h3>
               <p className="text-gray-400 text-base mb-5 leading-relaxed">
-                Optimized for speed with Lighthouse scores <span className="text-accent-yellow font-bold">90+</span>
+                Optimized for speed with clean code and best practices
               </p>
+
 
               {/* Enhanced Performance Bar */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400 font-medium">Performance Score</span>
+                  <span className="text-gray-400 font-medium">Code Quality</span>
                   <motion.span 
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -321,13 +331,13 @@ const BentoGrid = () => {
                     transition={{ delay: 0.5, type: "spring" }}
                     className="text-accent-yellow font-bold text-lg"
                   >
-                    95%
+                    A+
                   </motion.span>
                 </div>
                 <div className="h-3 bg-dark-900 rounded-full overflow-hidden shadow-inner">
                   <motion.div
                     initial={{ width: 0 }}
-                    whileInView={{ width: '95%' }}
+                    whileInView={{ width: '90%' }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, delay: 0.6, ease: "easeOut" }}
                     className="h-full bg-gradient-to-r from-accent-yellow via-accent-cyan to-accent-yellow rounded-full relative"
@@ -341,6 +351,7 @@ const BentoGrid = () => {
                 </div>
               </div>
 
+
               <motion.div
                 animate={{ 
                   scale: [1, 1.5, 1],
@@ -351,6 +362,7 @@ const BentoGrid = () => {
               />
             </motion.div>
           </motion.div>
+
 
           {/* Latest Tools - Enhanced Square Card */}
           <motion.div
@@ -378,6 +390,7 @@ const BentoGrid = () => {
                 Always learning and implementing <span className="text-accent-purple font-semibold">cutting-edge</span> technologies
               </p>
 
+
               {/* Enhanced Animated Dots */}
               <div className="flex gap-3 mt-6">
                 {[0, 1, 2, 3].map((i) => (
@@ -395,7 +408,8 @@ const BentoGrid = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced Experience Stats - Wide Card with Better Metrics */}
+
+          {/* Enhanced Experience Stats - Wide Card with Realistic Metrics */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -410,10 +424,10 @@ const BentoGrid = () => {
             >
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {[
-                  { label: 'Code Commits', value: '2000+', icon: '💻', color: 'from-accent-pink to-accent-purple', description: 'This Year' },
+                  { label: 'Projects Completed', value: '15+', icon: '💻', color: 'from-accent-pink to-accent-purple', description: 'Full-Stack Apps' },
                   { label: 'Years Experience', value: '3+', icon: '⭐', color: 'from-accent-cyan to-primary-500', description: 'Building Apps' },
-                  { label: 'Response Time', value: '< 24h', icon: '⚡', color: 'from-accent-yellow to-accent-cyan', description: 'Average Reply' },
-                  { label: 'Client Satisfaction', value: '99%', icon: '😊', color: 'from-accent-purple to-accent-pink', description: 'Success Rate' },
+                  { label: 'PRs Merged', value: '~2/wk', icon: '⚡', color: 'from-accent-yellow to-accent-cyan', description: 'Active Coding' },
+                  { label: 'Happy Clients', value: '100%', icon: '😊', color: 'from-accent-purple to-accent-pink', description: 'Satisfaction' },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
@@ -455,6 +469,7 @@ const BentoGrid = () => {
                       {stat.description}
                     </div>
 
+
                     {/* Hover Glow */}
                     <motion.div
                       className="absolute inset-0 opacity-0 group-hover/stat:opacity-100 transition-opacity rounded-xl"
@@ -465,6 +480,7 @@ const BentoGrid = () => {
                   </motion.div>
                 ))}
               </div>
+
 
               {/* Enhanced Background Animation */}
               <motion.div
@@ -481,5 +497,6 @@ const BentoGrid = () => {
     </section>
   )
 }
+
 
 export default BentoGrid

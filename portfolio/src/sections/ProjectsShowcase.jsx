@@ -3,10 +3,12 @@ import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from
 import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaChevronUp, FaStar } from "react-icons/fa";
 import { HiSparkles, HiEye } from "react-icons/hi";
 
+
 const ProjectsShowcase = () => {
   const [filter, setFilter] = useState("all");
   const [showAll, setShowAll] = useState(false);
   const INITIAL_DISPLAY = 6;
+
 
   const projects = [
     {
@@ -74,7 +76,7 @@ const ProjectsShowcase = () => {
       tech: ["React.js", "Socket.io", "NodeJs", "MongoDb"],
       category: "fullstack",
       github: "https://github.com/rajvveer/gravo",
-      live: "https://gravoapp.com",
+      live: "https://comforting-cat-4eba77.netlify.app/",
       featured: true,
     },
     {
@@ -109,19 +111,24 @@ const ProjectsShowcase = () => {
     },
   ];
 
+
   const filteredProjects = useMemo(() =>
     filter === "all" ? projects : projects.filter((p) => p.category === filter),
     [filter, projects]
   );
+
 
   const displayedProjects = useMemo(() =>
     showAll ? filteredProjects : filteredProjects.slice(0, INITIAL_DISPLAY),
     [showAll, filteredProjects]
   );
 
+
   const hasMoreProjects = filteredProjects.length > INITIAL_DISPLAY;
 
+
   const categories = useMemo(() => ["all", "fullstack", "mobile", "frontend", "games"], []);
+
 
   return (
     <section id="projects" className="py-20 px-6 relative overflow-hidden">
@@ -149,6 +156,7 @@ const ProjectsShowcase = () => {
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-purple/5 rounded-full blur-3xl"
       />
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -178,6 +186,7 @@ const ProjectsShowcase = () => {
               className="w-2 h-2 rounded-full bg-accent-yellow"
             />
           </motion.div>
+
 
           <motion.h2 
             className="text-4xl md:text-6xl font-display font-bold mb-6"
@@ -211,6 +220,58 @@ const ProjectsShowcase = () => {
             <span>{filteredProjects.length} {filter === 'all' ? 'Total' : filter.charAt(0).toUpperCase() + filter.slice(1)} Project{filteredProjects.length !== 1 ? 's' : ''}</span>
           </motion.div>
         </motion.div>
+
+        {/* Server Notice Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="max-w-3xl mx-auto mb-12"
+        >
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="relative overflow-hidden rounded-2xl glass-card border border-accent-yellow/30 p-6"
+          >
+            <motion.div
+              animate={{ 
+                x: ['-100%', '200%'],
+                opacity: [0, 0.5, 0]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-yellow/20 to-transparent"
+            />
+            
+            <div className="relative z-10 flex items-start gap-4">
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="flex-shrink-0 w-10 h-10 rounded-full bg-accent-yellow/20 flex items-center justify-center"
+              >
+                <HiSparkles className="text-accent-yellow text-xl" />
+              </motion.div>
+              
+              <div className="flex-1">
+                <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
+                  ⚡ Please Note
+                </h4>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Live demos are hosted on Render's free tier. If a server has been inactive, 
+                  it may take <span className="text-accent-yellow font-semibold">1-2 minutes</span> to 
+                  wake up on first visit. Thank you for your patience! For live demo of Apps you can contact me.
+                  <motion.span
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="ml-1"
+                  >
+                    ☕
+                  </motion.span>
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
 
         {/* Enhanced Filter Buttons with Icons */}
         <motion.div
@@ -270,6 +331,7 @@ const ProjectsShowcase = () => {
           ))}
         </motion.div>
 
+
         {/* Projects Grid with Stagger */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -283,6 +345,7 @@ const ProjectsShowcase = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
 
         {/* Enhanced Load More Button */}
         {hasMoreProjects && (
@@ -311,6 +374,7 @@ const ProjectsShowcase = () => {
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
               />
+
 
               <span className="relative z-10 flex items-center gap-3 text-lg">
                 {showAll ? (
@@ -344,6 +408,7 @@ const ProjectsShowcase = () => {
               />
             </motion.button>
 
+
             {!showAll && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -373,6 +438,7 @@ const ProjectsShowcase = () => {
   );
 };
 
+
 // ENHANCED Magnetic Card with GPU-accelerated 3D transforms
 const EnhancedMagneticCard = ({ project, index }) => {
   const ref = useRef(null);
@@ -382,21 +448,26 @@ const EnhancedMagneticCard = ({ project, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
+
   // Smoother spring configuration
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20, mass: 0.1 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20, mass: 0.1 });
+
 
   // Enhanced 3D transforms with better range
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
   const scale = useTransform(mouseXSpring, [-0.5, 0.5], [1, 1.02]);
 
+
   // Glow effect follows mouse
   const glowX = useTransform(mouseXSpring, [-0.5, 0.5], ["0%", "100%"]);
   const glowY = useTransform(mouseYSpring, [-0.5, 0.5], ["0%", "100%"]);
 
+
   const handleMouseMove = useCallback((e) => {
     if (!ref.current) return;
+
 
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
@@ -404,12 +475,15 @@ const EnhancedMagneticCard = ({ project, index }) => {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
+
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
+
 
     x.set(xPct);
     y.set(yPct);
   }, [x, y]);
+
 
   const handleMouseLeave = useCallback(() => {
     x.set(0);
@@ -417,9 +491,11 @@ const EnhancedMagneticCard = ({ project, index }) => {
     setIsHovered(false);
   }, [x, y]);
 
+
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
   }, []);
+
 
   return (
     <motion.div
@@ -440,14 +516,14 @@ const EnhancedMagneticCard = ({ project, index }) => {
         rotateY,
         scale,
         transformStyle: "preserve-3d",
-        willChange: "transform", // GPU acceleration hint
+        willChange: "transform",
       }}
       className="group cursor-pointer perspective-1000"
     >
       <motion.div 
         className="neuro-card overflow-hidden relative"
         style={{
-          transform: "translateZ(20px)", // 3D layer separation
+          transform: "translateZ(20px)",
         }}
       >
         {/* Enhanced Animated Glow Border */}
@@ -459,11 +535,12 @@ const EnhancedMagneticCard = ({ project, index }) => {
           }}
         />
 
+
         {/* Image with parallax effect */}
         <div className="relative h-64 overflow-hidden rounded-t-3xl">
           <motion.img
             style={{
-              transform: "translateZ(40px)", // Parallax depth
+              transform: "translateZ(40px)",
               scale,
             }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -471,6 +548,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
             alt={project.title}
             className="w-full h-full object-cover"
           />
+
 
           {/* Enhanced Gradient Overlay with shimmer */}
           <motion.div 
@@ -519,6 +597,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
             </div>
           </motion.div>
 
+
           {/* Enhanced Category Badge with animation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -530,6 +609,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
           >
             {project.category}
           </motion.div>
+
 
           {/* Featured badge */}
           {project.featured && (
@@ -545,6 +625,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
             </motion.div>
           )}
         </div>
+
 
         {/* Content with 3D depth */}
         <motion.div 
@@ -573,6 +654,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
             </p>
           </motion.div>
 
+
           {/* Tech Stack with hover effects */}
           <div className="flex flex-wrap gap-2.5">
             {project.tech.map((tech, i) => (
@@ -599,6 +681,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
             ))}
           </div>
 
+
           {/* Floating decorative orb */}
           <motion.div
             animate={{ 
@@ -616,5 +699,6 @@ const EnhancedMagneticCard = ({ project, index }) => {
     </motion.div>
   );
 };
+
 
 export default ProjectsShowcase;
