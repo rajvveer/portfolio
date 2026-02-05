@@ -7,14 +7,14 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
-  
+
   const { scrollYProgress } = useScroll()
   const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
+
       // Detect active section
       const sections = ['hero', 'bento', 'projects', 'skills', 'timeline', 'contact']
       const currentSection = sections.find(section => {
@@ -25,7 +25,7 @@ const Navbar = () => {
         }
         return false
       })
-      
+
       if (currentSection) {
         setActiveSection(currentSection)
       }
@@ -54,7 +54,7 @@ const Navbar = () => {
     } else {
       document.body.style.overflow = 'unset'
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset'
     }
@@ -72,7 +72,7 @@ const Navbar = () => {
   const handleLinkClick = (e, href) => {
     e.preventDefault()
     setIsMobileMenuOpen(false)
-    
+
     const element = document.querySelector(href)
     if (element) {
       const offset = 80
@@ -127,11 +127,10 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'glass-card py-3 shadow-lg backdrop-blur-xl border-b border-white/5' 
-            : 'py-6 bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'glass-card py-3 shadow-lg backdrop-blur-xl border-b border-white/5'
+          : 'py-6 bg-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative">
           {/* Logo */}
@@ -159,7 +158,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link, index) => {
               const isActive = activeSection === link.id
-              
+
               return (
                 <motion.a
                   key={link.name}
@@ -167,19 +166,18 @@ const Navbar = () => {
                   onClick={(e) => handleLinkClick(e, link.href)}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
+                  transition={{
                     delay: index * 0.1,
                     ease: [0.22, 1, 0.36, 1]
                   }}
                   whileHover={{ y: -2 }}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${
-                    isActive 
-                      ? 'text-white' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative group ${isActive
+                    ? 'text-white'
+                    : 'text-gray-400 hover:text-white'
+                    }`}
                 >
                   {link.name}
-                  
+
                   {/* Active indicator */}
                   {isActive && (
                     <motion.div
@@ -188,9 +186,9 @@ const Navbar = () => {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                  
+
                   {/* Hover underline */}
-                  <motion.span 
+                  <motion.span
                     className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan"
                     initial={{ width: 0 }}
                     whileHover={{ width: '100%' }}
@@ -221,7 +219,7 @@ const Navbar = () => {
             </motion.a>
 
             <motion.a
-              href="./assets/resume.pdf"
+              href="/assets/resume2.pdf"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -272,7 +270,7 @@ const Navbar = () => {
         {/* FIXED: Progress Bar - Now properly positioned without affecting layout */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-0.5 origin-left pointer-events-none"
-          style={{ 
+          style={{
             scaleX: scrollYProgress,
             background: 'linear-gradient(to right, #ec4899, #a855f7, #06b6d4)'
           }}
@@ -298,10 +296,10 @@ const Navbar = () => {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ 
-                type: 'spring', 
-                stiffness: 300, 
-                damping: 30 
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30
               }}
               className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm glass-card z-40 md:hidden overflow-hidden border-l border-white/10"
             >
@@ -329,18 +327,17 @@ const Navbar = () => {
                   <div className="flex flex-col gap-2">
                     {navLinks.map((link, index) => {
                       const isActive = activeSection === link.id
-                      
+
                       return (
                         <motion.a
                           key={link.name}
                           href={link.href}
                           variants={menuItemVariants}
                           onClick={(e) => handleLinkClick(e, link.href)}
-                          className={`px-5 py-4 rounded-xl transition-all duration-300 relative group ${
-                            isActive
-                              ? 'bg-gradient-to-r from-accent-pink/10 via-accent-purple/10 to-accent-cyan/10 text-white border border-accent-purple/30'
-                              : 'text-gray-400 hover:text-white hover:bg-white/5'
-                          }`}
+                          className={`px-5 py-4 rounded-xl transition-all duration-300 relative group ${isActive
+                            ? 'bg-gradient-to-r from-accent-pink/10 via-accent-purple/10 to-accent-cyan/10 text-white border border-accent-purple/30'
+                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                            }`}
                         >
                           <div className="flex items-center justify-between">
                             <span className="text-lg font-medium">{link.name}</span>
@@ -352,7 +349,7 @@ const Navbar = () => {
                               />
                             )}
                           </div>
-                          
+
                           {/* Number indicator */}
                           <span className="text-xs text-gray-600 mt-1 block">
                             0{index + 1}
@@ -381,7 +378,7 @@ const Navbar = () => {
                     <HiMail className="text-lg" />
                     Get In Touch
                   </motion.a>
-                  
+
                   <motion.a
                     href="/resume.pdf"
                     download

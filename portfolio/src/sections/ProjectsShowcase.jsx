@@ -23,7 +23,7 @@ const ProjectsShowcase = () => {
       live: "https://solaramb.netlify.app/",
       featured: true,
     },
-    
+
     {
       title: "Gravo App",
       description:
@@ -37,15 +37,15 @@ const ProjectsShowcase = () => {
       featured: true,
     },
     {
-      title: "AI Voice Assistant",
+      title: "Counselix",
       description:
-        "An AI-powered voice assistant built with Gemini, offering multiple accents, both male and female voices, and intelligent AI-driven suggestions.",
+        "Counselix is an AI-powered education counselling app that analyzes a student’s profile, goals, and constraints to deliver personalized guidance, university shortlisting, and actionable study-abroad roadmaps with clear reasoning. Built to mimic a real counsellor experience, it focuses on explainable decisions, outcome-driven recommendations, and profile improvement insights, earning 2nd place in a hackathon for its practical impact and UX.",
       image:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800",
-      tech: ["HTML", "CSS", "Gemini API", "Framer Motion"],
-      category: "frontend",
-      github: "#",
-      live: "https://lalitai.netlify.app/",
+      tech: ["Vite", "Tailwind", "Groq Api", "NodeJs", "PostgreSQL"],
+      category: "fullstack",
+      github: "https://github.com/rajvveer/hackathone_frontend",
+      live: "https://counselix.netlify.app/",
     },
     {
       title: "Chat App",
@@ -133,24 +133,24 @@ const ProjectsShowcase = () => {
   return (
     <section id="projects" className="py-20 px-6 relative overflow-hidden">
       {/* Enhanced Background Effects */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1, 1.2, 1],
           opacity: [0.1, 0.15, 0.1]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 left-0 w-96 h-96 bg-accent-pink rounded-full blur-3xl"
       />
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.1, 0.15, 0.1]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-cyan rounded-full blur-3xl"
       />
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           rotate: 360
         }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -188,7 +188,7 @@ const ProjectsShowcase = () => {
           </motion.div>
 
 
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-6xl font-display font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -197,8 +197,8 @@ const ProjectsShowcase = () => {
           >
             Featured <span className="gradient-text">Projects</span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-gray-400 text-lg mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -207,7 +207,7 @@ const ProjectsShowcase = () => {
           >
             Building the future, one project at a time
           </motion.p>
-          
+
           {/* Enhanced Project Count with Icon */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -234,14 +234,14 @@ const ProjectsShowcase = () => {
             className="relative overflow-hidden rounded-2xl glass-card border border-accent-yellow/30 p-6"
           >
             <motion.div
-              animate={{ 
+              animate={{
                 x: ['-100%', '200%'],
                 opacity: [0, 0.5, 0]
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-yellow/20 to-transparent"
             />
-            
+
             <div className="relative z-10 flex items-start gap-4">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
@@ -250,14 +250,14 @@ const ProjectsShowcase = () => {
               >
                 <HiSparkles className="text-accent-yellow text-xl" />
               </motion.div>
-              
+
               <div className="flex-1">
                 <h4 className="font-semibold text-white mb-2 flex items-center gap-2">
                   ⚡ Please Note
                 </h4>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  Live demos are hosted on Render's free tier. If a server has been inactive, 
-                  it may take <span className="text-accent-yellow font-semibold">1-2 minutes</span> to 
+                  Live demos are hosted on Render's free tier. If a server has been inactive,
+                  it may take <span className="text-accent-yellow font-semibold">1-2 minutes</span> to
                   wake up on first visit. Thank you for your patience! For live demo of Apps you can contact me.
                   <motion.span
                     animate={{ opacity: [0.5, 1, 0.5] }}
@@ -287,13 +287,13 @@ const ProjectsShowcase = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ 
+              transition={{
                 delay: index * 0.1,
                 type: "spring",
                 stiffness: 300,
                 damping: 20
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.08,
                 y: -5,
                 boxShadow: filter === cat ? "0 10px 40px rgba(236, 72, 153, 0.5)" : "0 10px 30px rgba(255, 255, 255, 0.1)"
@@ -303,11 +303,10 @@ const ProjectsShowcase = () => {
                 setFilter(cat);
                 setShowAll(false);
               }}
-              className={`px-8 py-3.5 rounded-full font-medium capitalize transition-all relative overflow-hidden group ${
-                filter === cat
-                  ? "bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan text-white shadow-2xl"
-                  : "glass-card text-gray-300 hover:text-white border border-gray-700 hover:border-accent-purple"
-              }`}
+              className={`px-8 py-3.5 rounded-full font-medium capitalize transition-all relative overflow-hidden group ${filter === cat
+                ? "bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan text-white shadow-2xl"
+                : "glass-card text-gray-300 hover:text-white border border-gray-700 hover:border-accent-purple"
+                }`}
             >
               {filter === cat && (
                 <>
@@ -333,7 +332,7 @@ const ProjectsShowcase = () => {
 
 
         {/* Projects Grid with Stagger */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           whileInView="visible"
@@ -358,8 +357,8 @@ const ProjectsShowcase = () => {
           >
             <motion.button
               onClick={() => setShowAll(!showAll)}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 boxShadow: "0 10px 50px rgba(236, 72, 153, 0.6)",
                 y: -5
               }}
@@ -367,7 +366,7 @@ const ProjectsShowcase = () => {
               className="group relative px-10 py-5 rounded-full bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan text-white font-semibold overflow-hidden shadow-2xl"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   x: ['-100%', '200%'],
                   opacity: [0, 1, 0]
                 }}
@@ -399,7 +398,7 @@ const ProjectsShowcase = () => {
                   </>
                 )}
               </span>
-              
+
               {/* Glow effect */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan opacity-0 group-hover:opacity-50 blur-xl transition-opacity"
@@ -443,7 +442,7 @@ const ProjectsShowcase = () => {
 const EnhancedMagneticCard = ({ project, index }) => {
   const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Optimized with GPU acceleration
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -503,8 +502,8 @@ const EnhancedMagneticCard = ({ project, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -30, scale: 0.9 }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay: index * 0.1,
         ease: [0.22, 1, 0.36, 1]
       }}
@@ -520,7 +519,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
       }}
       className="group cursor-pointer perspective-1000"
     >
-      <motion.div 
+      <motion.div
         className="neuro-card overflow-hidden relative"
         style={{
           transform: "translateZ(20px)",
@@ -551,7 +550,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
 
 
           {/* Enhanced Gradient Overlay with shimmer */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent"
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
@@ -563,7 +562,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
                 background: `radial-gradient(circle 200px at ${glowX} ${glowY}, rgba(236, 72, 153, 0.3), transparent)`,
               }}
             />
-            
+
             <div className="absolute inset-0 flex items-end justify-center gap-4 pb-8">
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 10 }}
@@ -576,7 +575,7 @@ const EnhancedMagneticCard = ({ project, index }) => {
               >
                 <FaGithub />
               </motion.a>
-              
+
               <motion.a
                 whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(236, 72, 153, 0.8)" }}
                 whileTap={{ scale: 0.9 }}
@@ -628,19 +627,19 @@ const EnhancedMagneticCard = ({ project, index }) => {
 
 
         {/* Content with 3D depth */}
-        <motion.div 
+        <motion.div
           className="p-8 relative"
           style={{
             transform: "translateZ(30px)",
           }}
         >
-          <motion.h3 
+          <motion.h3
             className="text-2xl font-display font-bold mb-4 group-hover:gradient-text transition-all duration-300"
             whileHover={{ x: 5 }}
           >
             {project.title}
           </motion.h3>
-          
+
           {/* Description with smooth expansion */}
           <motion.div
             className="mb-6 overflow-hidden"
@@ -663,13 +662,13 @@ const EnhancedMagneticCard = ({ project, index }) => {
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ 
+                transition={{
                   delay: i * 0.05,
                   type: "spring",
                   stiffness: 300
                 }}
-                whileHover={{ 
-                  scale: 1.15, 
+                whileHover={{
+                  scale: 1.15,
                   y: -3,
                   boxShadow: "0 5px 15px rgba(168, 85, 247, 0.4)"
                 }}
@@ -684,11 +683,11 @@ const EnhancedMagneticCard = ({ project, index }) => {
 
           {/* Floating decorative orb */}
           <motion.div
-            animate={{ 
+            animate={{
               rotate: 360,
               scale: [1, 1.2, 1]
             }}
-            transition={{ 
+            transition={{
               rotate: { duration: 20, repeat: Infinity, ease: "linear" },
               scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
             }}
